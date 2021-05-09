@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Conversion Rate Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body style="background: #fff;">
+ <div class="login">
+	<h1>Conversion Rate Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form method="post">
+    	<input type="text" name="country" placeholder="country" required="required" />
+        <input type="text" name="age" placeholder="age" required="required" />
+		<input type="text" name="new_user" placeholder="new_user" required="required" />
+        <input type="text" name="source" placeholder="source" required="required" />
+        <input type="text" name="total_pages_visited" placeholder="total_pages_visited" required="required" />
+        <!--<button type="submit" class="btn btn-primary btn-block btn-large">Predict whether the user gets converted</button>-->
+        <input type="submit" value="KNN" onclick="javascript: form.action='/predict-knn';">
+        <input type="submit" value="Naive Bayes" onclick="javascript: form.action='/predict-nb';">
+        <input type="submit" value="SVC" onclick="javascript: form.action='/predict-svc';">
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</html>
